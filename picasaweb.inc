@@ -6,7 +6,7 @@ function picasa_create_album($userid, $albumid) {
   echo('<div id="picasaPhotos"></div>');
 
   // Load the scripts
-  echo('<script src="/files/photoalbums/jquery/1.6.1/jquery.min.js" type="text/javascript"></script>');
+  echo('<script src="/files/photoalbums/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>');
   echo('<script src="/files/photoalbums/slimbox/2.04/js/slimbox2.js" type="text/javascript"></script>');
   echo('<link rel="stylesheet" href="/files/photoalbums/slimbox/2.04/css/slimbox2.css" type="text/css" media="screen" />');
   echo('<script src="/files/photoalbums/js/picasaalbum.js" type="text/javascript"></script>');

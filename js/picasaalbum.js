@@ -13,7 +13,7 @@ var DEFAULT_THUMBSIZE = THUMB_MEDIUM;
 var DEFAULT_PHOTOSIZE = PHOTO_MEDIUM;
 
 // Compute horizontal and vertical padding needed to make the image "square" so
-// vertical and horizontal images align nicely on a grid
+// landscape and portrait images align nicely on a grid
 function computePadding(width, height) {
   var hspace = 0;
   var vspace = 0;
@@ -27,9 +27,9 @@ function computePadding(width, height) {
   return {"hspace": hspace, "vspace": vspace};
 }
 
-// Adjust margin style, using padding computed from image
-// hspace and vspace specify padding to make the area around the image seem "square"
-// margin is the universal padding to place all around the image
+// Adjust margin style, using padding computed from image dimensions
+// hspace and vspace specify padding to make the area filled by the image seem "square"
+// margin is the padding to be placed on all sides of the image
 function imgMarginStyle(hspace, vspace, margin) {
   var hmargin = margin + hspace;
   var vmargin = margin + vspace;
