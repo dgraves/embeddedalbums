@@ -1,3 +1,7 @@
+// Type of album identifier to use with Picasa query
+var ALBUM_NAME = "album"
+var ALBUM_ID   = "albumid"
+
 // Indexes to standard thumbnails returned by Picasa API
 var THUMB_SMALL  = 0;
 var THUMB_MEDIUM = 1;
@@ -11,6 +15,7 @@ var PHOTO_LARGE  = 1024;
 var DEFAULT_MARGIN    = 5;
 var DEFAULT_THUMBSIZE = THUMB_MEDIUM;
 var DEFAULT_PHOTOSIZE = PHOTO_MEDIUM;
+var DEFAULT_IDTYPE    = ALBUM_NAME;
 
 // Compute horizontal and vertical padding needed to make the image "square" so
 // landscape and portrait images align nicely on a grid
@@ -42,15 +47,16 @@ function imgScaledUrl(url, size) {
   return url.substring(0, split) + "/s" + size + url.substring(split);
 }
 
-function loadPicasaAlbum(userid, albumid, thumbsize, photosize, margin) {
+function loadPicasaAlbum(userid, albumid, thumbsize, photosize, margin, idtype) {
   var ts = thumbsize || DEFAULT_THUMBSIZE;
   var ps = photosize || DEFAULT_PHOTOSIZE;
   var m = margin || DEFAULT_MARGIN;
+  var it = idtype || DEFAULT_IDTYPE;
 
   // Originally based on code from http://www.bloggingtips.com/2009/03/23/picasa-widgets-and-plugins-for-your-blog/
   $j = jQuery.noConflict();
   $j(document).ready(function(){
-    $j.getJSON("https://picasaweb.google.com/data/feed/base/user/" + userid + "/album/" + albumid + "?kind=photo&access=public&alt=json-in-script&callback=?",
+    $j.getJSON("https://picasaweb.google.com/data/feed/base/user/" + userid + "/" + it + "/" + albumid + "?kind=photo&access=public&alt=json-in-script&callback=?",
     function(data, status) {
       $j("#picasaTitle").text(data.feed.title.$t);
       $j("#picasaSubtitle").text(data.feed.subtitle.$t);

@@ -1,5 +1,5 @@
 <?php
-function picasa_create_album($userid, $albumid) {
+function picasa_create_album($userid, $albumname) {
   // Generate the document body 
   echo('<style type="text/css">#picasaPhotos img {border: 1px solid #000; margin: 5px 5px 5px 5px;}</style>');
   echo('<pre id="picasaSubtitle"></pre>');
@@ -13,7 +13,7 @@ function picasa_create_album($userid, $albumid) {
 
   // Load the album
   echo('<script type="text/javascript">');
-  echo('loadPicasaAlbum("' . $userid . '", "' . $albumid . '");');
+  echo('loadPicasaAlbum("' . $userid . '", "' . $albumname . '");');
   echo('</script>');
 }
 ?>
