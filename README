@@ -1,1 +1,28 @@
-JavaScript code to embed Picasa Web albums within any webpage.  Uses the Slimbox2 plug-in for jQuery to provide a lightbox effect for the album.  Some PHP code for generating a web page containing a Picasa web album is also included.
+embeddedalbums
+==============
+JavaScript code to embed Picasa Web albums within a web page.  The
+Slimbox2 plug-in for jQuery is used to provide a lightbox effect
+when viewing images.  
+
+This project was originally described in the following blog post:
+  http://dgraves.org/content/embedding-picasa-web-albums-javascript
+  
+Project Files
+=============
+  picasaweb.inc        Sample PHP code for generating a web page
+                       containing a Picasa web album.
+  js/picasaalbum.js    JavaScript code to embed a Picasa Web album
+                       within a web page.
+  jquery/*             jQuery module used for album generation.
+  slimbox/*            Slimbox2 module used for image display.
+
+Integrating with Drupal
+=======================
+The picasaweb.inc example was intended to be used with content
+management systems such as Drupal.  It may be used to embed an
+album within a Drupal 6 page with the following PHP code:
+
+  <?php
+    include('files/embeddedalbums/picasaweb.inc');
+	picasa_create_album('myuserid', 'MyAlbumName');
+  ?>
